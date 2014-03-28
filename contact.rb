@@ -27,7 +27,7 @@ class Contact
 	end
 
 	def to_s
-		"ID: #{@id}\nFirst Name: #{@first_name.capitalize}\nLast Name: #{@last_name.capitalize}\nEmail: #{email}\nNotes: #{@notes}\n**********"
+		"ID: #{@id}\nFirst Name: #{@first_name.capitalize}\nLast Name: #{@last_name.capitalize}\nEmail: #{@email}\nNotes: #{@notes}\n********"
 	end
 
 	def self.get_id

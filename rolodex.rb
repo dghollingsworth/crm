@@ -9,6 +9,7 @@ class Rolodex
 		contact.email = email
 		contact.notes = notes
 		@contacts << contact
+		puts "Contact Successfully Added"
 	end
 
 	def show_specific_contact(last)
@@ -21,10 +22,10 @@ class Rolodex
 			end
 		end
 		if contact_found ==true
-			puts "********\nFOUND SOMETHING!!!\n********"
+			puts "........\nFOUND SOMETHING!!!\n........"
 			found_arr.each{|i| puts i}
 		else
-			puts "********\nSorry no contacts found\n********"
+			puts "........\nSorry no contacts found\n........"
 		end
 	end
 
@@ -38,11 +39,36 @@ class Rolodex
 		@contacts.delete_if{|c| c.id==id}
 	end
 
-	def edit_contact(id, new_name)
+	def change_first_name(id, new_first)
 		@contacts.each do |contact|
 			if contact.id==id
-				contact.name = new_name
+				contact.first_name = new_first
 			end
 		end
 	end
-end
+
+	def change_last_name(id, new_last)
+		@contacts.each do |contact|
+			if contact.id==id
+				contact.last_name = new_last
+			end
+		end
+	end
+
+	def change_email(id, email)
+		@contacts.each do |contact|
+			if contact.id==id
+				contact.email = email
+			end
+		end
+	end
+
+	def add_note(id, note)
+		@contacts.each do |contact|
+			if contact.id==id
+				contact.notes = note
+			end
+		end
+	end
+
+end#Class close
