@@ -10,9 +10,10 @@ class Runner
 		puts "Amazing CRM"
 		puts "1. Add a contact"
 		puts "2. See all contacts"
-		puts "0. To Exit"
-		puts "3. Remove a Contact"
+		puts "3. Remove a contact"
 		puts "4. Edit a contact"
+		puts "5. Show a specific contact"
+		puts "0. To Exit"
 	end
 
 	def add_contact
@@ -24,8 +25,18 @@ class Runner
 		######
 		puts "Enter Customer Email"
 		email = gets.chomp
-		@rolodex.create_contact(first_name, last_name, email)
+		######
+		puts "Enter Customer Notes (if relevant)"
+		notes = gets.chomp
+		#######
+		@rolodex.create_contact(first_name, last_name, email, notes)
 		puts "................"
+	end
+
+	def show_specific_contact
+		puts "Enter contact last name"
+		last_name = gets.chomp
+		@rolodex.show_specific_contact(last_name)
 	end
 
 	def remove_contact
@@ -41,10 +52,9 @@ class Runner
 	def edit_contact
 		puts "Enter contact ID to edit"
 		id = gets.chomp.to_i
-		@rolodex.remove_contact(id)
-		puts "Enter new contact name"
-		new_name = gets.chomp
-		@rolodex.edit_contact(id, new_name)
+		puts "Enter new first name"
+		new_first_name = gets.chomp
+		@rolodex.edit_contact(id, new_first_name)
 	end
 
 	def run
@@ -62,6 +72,8 @@ class Runner
 				remove_contact
 			elsif input==4
 				edit_contact
+			elsif input==5
+				show_specific_contact
 			end
 		end
 	end
