@@ -22,7 +22,7 @@ class Contact
 		@id = Contact.get_id
 		@first_name = ""
 		@last_name = ""
-		@notes = ""
+		@notes = []
 		@email = ""
 	end
 

@@ -7,7 +7,7 @@ class Rolodex
 		contact.first_name = first_name
 		contact.last_name = last_name
 		contact.email = email
-		contact.notes = notes
+		contact.notes = notes+"\n"
 		@contacts << contact
 		puts "Contact Successfully Added"
 	end
@@ -66,7 +66,7 @@ class Rolodex
 	def add_note(id, note)
 		@contacts.each do |contact|
 			if contact.id==id
-				contact.notes = note
+				contact.notes<<note<<"\n"
 			end
 		end
 	end
