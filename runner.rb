@@ -16,9 +16,15 @@ class Runner
 	end
 
 	def add_contact
-		puts "Enter Customer's Name"
-		name = gets.chomp
-		@rolodex.create_contact(name)
+		puts "Enter Customer First Name"
+		first_name = gets.chomp
+		######
+		puts "Enter Customer Last Name"
+		last_name = gets.chomp
+		######
+		puts "Enter Customer Email"
+		email = gets.chomp
+		@rolodex.create_contact(first_name, last_name, email)
 		puts "................"
 	end
 
