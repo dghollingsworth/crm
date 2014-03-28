@@ -12,11 +12,51 @@ class Rolodex
 		puts "Contact Successfully Added"
 	end
 
-	def show_specific_contact(last)
+	def show_specific_last
 		contact_found = false
 		found_arr = []
+		puts "Enter Last Name"
+		last = gets.chomp.downcase
 		@contacts.each do |contact|
 			if contact.last_name == last
+				contact_found = true
+				found_arr << contact
+			end
+		end
+		if contact_found ==true
+			puts "........\nFOUND SOMETHING!!!\n........"
+			found_arr.each{|i| puts i}
+		else
+			puts "........\nSorry no contacts found\n........"
+		end
+	end
+
+	def show_specific_first
+		contact_found = false
+		found_arr = []
+		puts "Enter First Name"
+		first = gets.chomp.downcase
+		@contacts.each do |contact|
+			if contact.first_name == first
+				contact_found = true
+				found_arr << contact
+			end
+		end
+		if contact_found ==true
+			puts "........\nFOUND SOMETHING!!!\n........"
+			found_arr.each{|i| puts i}
+		else
+			puts "........\nSorry no contacts found\n........"
+		end
+	end
+
+	def show_specific_id
+		contact_found = false
+		found_arr = []
+		puts "Enter ID"
+		id = gets.chomp.to_i
+		@contacts.each do |contact|
+			if contact.id == id
 				contact_found = true
 				found_arr << contact
 			end

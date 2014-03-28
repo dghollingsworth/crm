@@ -18,10 +18,10 @@ class Runner
 
 	def add_contact
 		puts "Enter Customer First Name"
-		first_name = gets.chomp
+		first_name = gets.chomp.downcase
 		######
 		puts "Enter Customer Last Name"
-		last_name = gets.chomp
+		last_name = gets.chomp.downcase
 		######
 		puts "Enter Customer Email"
 		email = gets.chomp
@@ -34,9 +34,15 @@ class Runner
 	end
 
 	def show_specific_contact
-		puts "Enter contact last name"
-		last_name = gets.chomp
-		@rolodex.show_specific_contact(last_name)
+		puts "Search by:\n1. ID\n2. Last Name\n3. First Name"
+		choice = gets.chomp.to_i
+		if choice==1
+			@rolodex.show_specific_id
+		elsif choice==2
+			@rolodex.show_specific_last
+		elsif choice==3
+			@rolodex.show_specific_first
+		end
 	end
 
 	def remove_contact
